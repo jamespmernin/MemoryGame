@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const DELAY = 500;
+    const DELAY = 1000;
     //card options
     const cardArray = [
         {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cards[optionOneId].setAttribute('src', 'images/blank.png');
             cards[optionTwoId].setAttribute('src', 'images/blank.png');
             statusDisplay.textContent = 'You have clicked the same image!';
-            setTimeout(clearStatus, DELAY * 2);
+            setTimeout(clearStatus, DELAY);
         }
         else if (cardsChosen[0] === cardsChosen[1]) {
             cards[optionOneId].setAttribute('src', 'images/white.png');
@@ -89,13 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cardsWon.push(cardsChosen);
             if (cardsWon.length !== cardArray.length / 2) {
                 statusDisplay.textContent = 'You found a match!';
-                setTimeout(clearStatus, DELAY * 2);
+                setTimeout(clearStatus, DELAY);
             }
         } else {
             cards[optionOneId].setAttribute('src', 'images/blank.png');
             cards[optionTwoId].setAttribute('src', 'images/blank.png');
             statusDisplay.textContent = 'Sorry, try again!';
-            setTimeout(clearStatus, DELAY * 2);
+            setTimeout(clearStatus, DELAY);
         }
         cardsChosen = [];
         cardsChosenId = [];
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosenId.push(cardId);
         this.setAttribute('src', cardArray[cardId].img);
         if (cardsChosen.length === 2) {
-            setTimeout(checkForMatch, DELAY);
+            setTimeout(checkForMatch, DELAY / 2);
         }
     }
 
