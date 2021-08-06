@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     let cardsChosen = [];
     let cardsChosenId = [];
+    let cardsWon = [];
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             let card = document.createElement('img');
@@ -65,6 +66,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //check for match
+    function checkForMatch() {
+        let cards = document.querySelectorAll('img');
+        const optionOneId = cardsChosenId[0];
+        const optionTwoId = cardsChosenId[1];
+        if (cardsChosen[0] === cardsChosen[1]) {
+            alert('You found a match');
+            cards[optionOneId].setAttribute('src', 'images/white.png');
+            cards[optionTwoId].setAttribute('src', 'images/white.png');
+            cardsWon.push(cardsChosen);
+        } else {
+            alert('Sorry, try again');
+            cards[optionOneId].setAttribute('src', 'images/blank.png');
+            cards[optionTwoId].setAttribute('src', 'images/blank.png');
+        }
+        cardsChosen = [];
+        cardsChosenId = [];
+        // resultDisplay
+    }
 
     //flip card
     function flipCard() {
