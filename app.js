@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
     cardArray.sort(() => 0.5 - Math.random());
     //create game board
-    const grid = document.querySelector('.grid')
+    const grid = document.querySelector('.grid');
     let resultDisplay = document.querySelector('#result');
     let statusDisplay = document.querySelector('#status');
     let cardsChosen = [];
@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             let card = document.createElement('img');
-            card.setAttribute('src', 'images/blank.png')
-            card.setAttribute('data-id', i)
-            card.addEventListener('click', flipCard)
+            card.setAttribute('src', 'images/blank.png');
+            card.setAttribute('data-id', i);
+            card.addEventListener('click', flipCard);
             grid.appendChild(card);
         }
     }
