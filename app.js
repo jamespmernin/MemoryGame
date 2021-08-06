@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random());
     //create game board
     const grid = document.querySelector('.grid')
-    const resultDisplay = document.querySelector('#result');
+    let resultDisplay = document.querySelector('#result');
     let cardsChosen = [];
     let cardsChosenId = [];
     let cardsWon = [];
