@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //create game board
     const grid = document.querySelector('.grid')
     let resultDisplay = document.querySelector('#result');
+    let statusDisplay = document.querySelector('#status');
     let cardsChosen = [];
     let cardsChosenId = [];
     let cardsWon = [];
@@ -76,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (optionOneId == optionTwoId) {
             cards[optionOneId].setAttribute('src', 'images/blank.png');
             cards[optionTwoId].setAttribute('src', 'images/blank.png');
-            alert('You have clicked the same image!');
+            statusDisplay.textContent = 'You have clicked the same image!';
+            setTimeout(statusDisplay.textContent = '', 2000);
         }
         else if (cardsChosen[0] === cardsChosen[1]) {
             cards[optionOneId].setAttribute('src', 'images/white.png');
@@ -84,17 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
             cards[optionOneId].removeEventListener('click', flipCard);
             cards[optionTwoId].removeEventListener('click', flipCard);
             cardsWon.push(cardsChosen);
-            alert('You found a match');
+            statusDisplay.textContent = 'You found a match!';
+            setTimeout(statusDisplay.textContent = '', 2000);
         } else {
             cards[optionOneId].setAttribute('src', 'images/blank.png');
             cards[optionTwoId].setAttribute('src', 'images/blank.png');
-            alert('Sorry, try again');
+            statusDisplay.textContent = 'Sorry, try again!';
+            setTimeout(statusDisplay.textContent = '', 2000);
         }
         cardsChosen = [];
         cardsChosenId = [];
         resultDisplay.textContent = cardsWon.length;
         if (cardsWon.length === cardArray.length / 2) {
-            resultDisplay.textContent = 'Congratulations! You found them all!';
+            statusDisplay.textContent = 'Congratulations! You found them all!';
         }
     }
 
