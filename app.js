@@ -50,8 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/pizza.png'
         }
     ]
+    cardArray.sort(() => 0.5 - Math.random());
     //create game board
     const grid = document.querySelector('.grid')
+    const resultDisplay = document.querySelector('#result');
     let cardsChosen = [];
     let cardsChosenId = [];
     let cardsWon = [];
@@ -82,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         cardsChosen = [];
         cardsChosenId = [];
-        // resultDisplay
+        resultDisplay = cardsWon.length;
+        if (cardsWon.length === cardArray.length / 2) {
+            resultDisplay.textContent = 'Congratulations! You found them all!';
+        }
     }
 
     //flip card
