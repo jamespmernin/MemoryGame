@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         cardsChosen = [];
         cardsChosenId = [];
-        resultDisplay = cardsWon.length;
+        resultDisplay.textContent = cardsWon.length;
         if (cardsWon.length === cardArray.length / 2) {
             resultDisplay.textContent = 'Congratulations! You found them all!';
         }
